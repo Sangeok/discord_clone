@@ -20,10 +20,10 @@ model Profile {
 
   servers Server[]
   members Member[]
-  Channels Channel[]
+  channels Channel[]
 
   createAt DateTime @default(now())
-  updateAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 }
 
 model Server {
@@ -39,7 +39,7 @@ model Server {
   chennels Channel[]
 
   createAt DateTime @default(now())
-  updateAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 
   @@index([profileId])
 }
@@ -61,7 +61,7 @@ model Member {
   server Server @relation(fields: [serverId], references :[id], onDelete : Cascade)
 
   createAt DateTime @default(now())
-  updateAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 
   @@index([profileId])
   @@index([serverId])
@@ -85,7 +85,7 @@ model Channel {
   server Server @relation(fields: [serverId], references :[id], onDelete : Cascade)
 
   createAt DateTime @default(now())
-  updateAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 
   @@index([profileId])
   @@index([serverId])

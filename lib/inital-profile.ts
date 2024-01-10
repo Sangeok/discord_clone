@@ -5,8 +5,6 @@ import {db} from "@/lib/db";
 export const initialProfile = async () => {
     const user = await currentUser();
 
-    console.log(user?.firstName);
-
     // user가 없으면 로그인 페이지로 리다이렉트
     if (!user) {
         await redirectToSignIn();

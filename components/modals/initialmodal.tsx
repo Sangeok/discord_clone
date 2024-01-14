@@ -12,7 +12,6 @@ import {
     DialogTitle,
     DialogDescription,
 } from "@/components/ui/dialog";
-import { DialogTrigger } from "@radix-ui/react-dialog";
 import {
     Form,
     FormControl,
@@ -25,7 +24,9 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useState,useEffect } from "react";
+import { FileUpload } from "../file-upload";
 
+// zod schema for form validation
 const formSchema = z.object({   
     name : z.string().min(1, {
         message : "Server name is required"
@@ -59,7 +60,6 @@ export default function InitialModal() {
 
     if(!isMounted) return null;
 
-
     return (
         <Dialog open>
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
@@ -81,11 +81,11 @@ export default function InitialModal() {
                             render={({ field }) => (
                                 <FormItem>
                                 <FormControl>
-                                    <FormLabel
-                                        className="flex items-center justify-center text-center"
-                                    >
-                                        TODO : Image Upload
-                                    </FormLabel>
+                                    <FileUpload 
+                                        endpoint="serverImage"
+                                        value={field.value}
+                                        onChange={field.onChange}
+                                    />
                                 </FormControl>
                                 </FormItem>
                             )}

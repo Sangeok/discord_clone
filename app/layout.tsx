@@ -4,6 +4,7 @@ import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { cn } from '@/lib/utils'
+import "@uploadthing/react/styles.css";
 
 const font = Open_Sans({ subsets: ['latin'] })
 

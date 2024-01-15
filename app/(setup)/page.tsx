@@ -20,7 +20,7 @@ const SetupPage = async () => {
 
     // If the user is already in a server, redirect them to that server
     if(server) {
-        return redirect(`/server/${server.id}`);
+        return redirect(`/servers/${server.id}`);
     }
 
     return (

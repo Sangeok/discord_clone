@@ -5,6 +5,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { cn } from '@/lib/utils'
 import "@uploadthing/react/styles.css";
+import { ModalProvider } from '@/components/providers/modal-provider'
 
 const font = Open_Sans({ subsets: ['latin'] })
 
@@ -31,6 +32,7 @@ export default function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
+            <ModalProvider/>
             {children}
           </ThemeProvider>
         </body>

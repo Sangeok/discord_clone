@@ -49,9 +49,7 @@ export async function DELETE(
                 }
             }
         })
-
         return NextResponse.json(server);
-
 
     } catch (error) {
         console.log("[CHANNEL DELETE ERROR]", error);

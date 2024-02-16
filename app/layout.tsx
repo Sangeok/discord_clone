@@ -6,6 +6,8 @@ import { ThemeProvider } from '@/components/providers/theme-provider'
 import { cn } from '@/lib/utils'
 import "@uploadthing/react/styles.css";
 import { ModalProvider } from '@/components/providers/modal-provider'
+import { Socket } from 'socket.io'
+import { SocketProvider } from '@/components/providers/socket-provider'
 
 const font = Open_Sans({ subsets: ['latin'] })
 
@@ -32,8 +34,10 @@ export default function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <ModalProvider/>
-            {children}
+            <SocketProvider>
+              <ModalProvider/>
+              {children}    
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
